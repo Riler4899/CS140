@@ -86,7 +86,7 @@ def strat(array, index):
     popped = array.pop(index)
     return popped
 
-while daynum < 20:
+while True:
     #Update all the counters
     if(len(current) != 0):
         current[2] -= 1
