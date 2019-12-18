@@ -35,18 +35,6 @@ while True:
     print("")
     print("That is not an option, Commissar")
 
-print("And what strategy will we use?")
-strategies = ["FCFS","SJF","Priority(Alphabetical)","Round Robin(t=4)"]
-stra = 2; 
-while True:
-    
-    for act in range(len(strategies)):
-        print("{} - {}".format(act,strategies[act]))
-    stra = int(input())
-    if(stra < len(strategies) and stra >= 0):
-        break
-    print("")
-    print("That is not an option, Commissar")
 
 
 
@@ -93,24 +81,10 @@ def addshit(city):
                 citiesLeft.pop(i)
                 print("The Battle for {} has concluded, Commissar. The city has fallen to our victorious troops.".format(cities[city]))
                 break
-#Our key for sorting which is the city tag
-def key_sort_alphabet(t):
-	return(t[3].lower)
-def key_sort_numeric(t):
-	return(t[2])
+
 
 #Function containing the strat we use. Now set to FIFO
 def strat(array, index):
-	global stra
-	if(stra == 1 or stra == 4):
-		pass
-	elif(stra == 2):
-		if(len(array) > 0):
-			array.sort(key=key_sort_numeric)
-	elif(stra == 3):
-		if(len(array) > 0):
-			array.sort(key=key_sort_alphabet)
-			#print(array)
 	popped = array.pop(index)
 	return popped
 
@@ -127,12 +101,7 @@ while True:
             current = []
             addshit(t)
             if(len(current) == 0 and len(queue) != 0):
-                current = strat(queue,0)
-        #RR Implementation
-        elif(((daynum - 1)/quantum ==1) and stra == 4 and len(queue) != 0):
-       		print("Time up for army!")
-       		queue.append(current)
-       		strat(queue,0)
+                current = strat(queue,
             
 #HERE PUT LOGIC FOR OTHER STRATS
     for suborder in subcommander:
